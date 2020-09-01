@@ -1,24 +1,6 @@
-<html>
-<head></head>
-<body>
+{extends file="layout.tpl"}
+{block name=body}
+    <button class="btn btn-success">Test bootstrap BTN</button>
+{/block}
 
-
-Welcome back, {{$name}}.
-<table border="1">
-    <thead>
-        <th>Name</th>
-        <th>Age</th>
-    </thead>
-    <tbody>
-    {foreach from=$items item=i}
-        <tr>
-            <td>{$i['name']}</td>
-            <td>{$i['age']}</td>
-        </tr>
-    {/foreach}
-    </tbody>
-</table>
-
-
-</body>
-</html>
+{block name="title"}Page #1{/block}
