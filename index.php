@@ -6,24 +6,44 @@ $smarty = new Smarty();
 $smarty->setTemplateDir('templates');
 
 
-$action = $_GET['action'] ?? 'index';
+$action = $_GET['action'] ?? 'main';
 
 switch ($action) {
-    case "index":
-        $smarty->display('index.tpl');
+    case "login":
+        loginEndpoint();
         break;
-    case "index2":
-        $smarty->display('index2.tpl');
+    case "register":
+        registerEndpoint();
         break;
-    case "index3":
-        $smarty->display('index3.tpl');
+    case "logout":
+        session_destroy();
+        header("Location: /");
         break;
     default:
-        $smarty->display('404.tpl');
-        break;
+        $smarty->display('index.tpl');
 }
 
 
 
 
-sprintf("This is %s", "phone!");
+function registerEndpoint()
+{
+    global $smarty;
+
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $smarty->display('register.tpl');
+    } else {
+        //perform registration
+    }
+}
+
+function loginEndpoint()
+{
+    global $smarty;
+
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $smarty->display('login.tpl');
+    } else {
+        //perform login
+    }
+}
