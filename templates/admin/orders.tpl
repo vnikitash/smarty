@@ -1,8 +1,5 @@
 {extends file="layout.tpl"}
 
 {block name="body"}
-
-
-    MAIN
-
+    LIST OF ALL USERS ORDERS
 {/block}

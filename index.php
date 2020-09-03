@@ -1,10 +1,10 @@
 <?php
 
 require_once "libs/Smarty.class.php";
+require_once "functions.php";
 
 $smarty = new Smarty();
 $smarty->setTemplateDir('templates');
-
 
 $action = $_GET['action'] ?? 'main';
 
@@ -15,35 +15,26 @@ switch ($action) {
     case "register":
         registerEndpoint();
         break;
+    case "admin":
+    case "adminUsers":
+        adminUsersEndpoint();
+        break;
+    case "adminCategories":
+        adminCategoriesEndpoint();
+        break;
+    case "adminProducts":
+        adminProductsEndpoint();
+        break;
+    case "adminOrders":
+        adminOrdersEndpoint();
+        break;
+    case "cart":
+        cartEndpoint();
+        break;
     case "logout":
-        session_destroy();
-        header("Location: /");
+        logoutEndpoint();
         break;
     default:
-        $smarty->display('index.tpl');
-}
-
-
-
-
-function registerEndpoint()
-{
-    global $smarty;
-
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $smarty->display('register.tpl');
-    } else {
-        //perform registration
-    }
-}
-
-function loginEndpoint()
-{
-    global $smarty;
-
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $smarty->display('login.tpl');
-    } else {
-        //perform login
-    }
+        mainPageEndpoint();
+        break;
 }
