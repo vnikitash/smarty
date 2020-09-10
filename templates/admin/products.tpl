@@ -1,6 +1,32 @@
 {extends file="layout.tpl"}
 
 {block name="body"}
+
+    <form action="/?action=adminAddProduct" method="POST" style="width: 400px" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Price $</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Product price ($)" name="price">
+        </div>
+        <div class="form-group">
+            <label for="file">Image</label>
+            <input type="file" class="form-control" id="file" name="image">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" name="category_id">
+                {foreach from=$categories item=category}
+                    <option value="{$category['id']}">{$category['name']}</option>
+                {/foreach}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Create Product</button>
+    </form>
+
     <table class="table">
         <thead>
         <tr>

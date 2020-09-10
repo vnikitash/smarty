@@ -1,6 +1,15 @@
 {extends file="layout.tpl"}
 
 {block name="body"}
+
+    {if isset($smarty.get.error)}
+        <div class="alert alert-danger" role="alert">{{$smarty.get.error}}</div>
+    {/if}
+
+    {if isset($smarty.get.message)}
+        <div class="alert alert-success" role="alert">{{$smarty.get.message}}</div>
+    {/if}
+
     <table class="table">
         <thead>
         <tr>
@@ -12,26 +21,37 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>admin@admin.admin</td>
-            <td>25.03.2020</td>
-            <td>user</td>
-            <td>
-                <button class="btn btn-success">Make admin</button>
-                <button class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>admin@admin.admin</td>
-            <td>25.03.2020</td>
-            <td>admin</td>
-            <td>
-                <button class="btn btn-default">Make user</button>
-                <button class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
+        {foreach from=$users item=user}
+            <tr>
+                <td>{$user['id']}</td>
+                <td>{$user['email']}</td>
+                <td>{$user['created_at']}</td>
+                <td>{if $user['is_admin'] == 1} admin {else} user {/if}</td>
+                <td>
+                    {if $user['id'] == $smarty.session.user.id}
+                        -
+                    {elseif $user['is_admin'] == 1}
+                        <form action="/?action=adminChangeRole" method="POST">
+                            <input type="hidden" value="{$user['id']}" name="id">
+                            <input type="hidden" value="0" name="admin">
+                            <input type="submit" class="btn btn-primary" value="Make user">
+                        </form>
+                    {else}
+                        <form action="/?action=adminChangeRole" method="POST">
+                            <input type="hidden" value="{$user['id']}" name="id">
+                            <input type="hidden" value="1" name="admin">
+                            <input type="submit" class="btn btn-success" value="Make admin">
+                        </form>
+                    {/if}
+
+                    {if $user['id'] == $smarty.session.user.id}
+                        -
+                    {else}
+                        <button class="btn btn-danger">Delete</button>
+                    {/if}
+                </td>
+            </tr>
+        {/foreach}
 
         </tbody>
     </table>

@@ -6,6 +6,8 @@ require_once "functions.php";
 require_once "session.php";
 
 
+checkUserRole();
+
 $smarty = new Smarty();
 $smarty->setTemplateDir('templates');
 
@@ -19,6 +21,18 @@ if (strpos($action, 'admin') === 0) {
 }
 
 switch ($action) {
+    case "adminUpdateCategory":
+        adminUpdateCategoryEndpoint();
+        break;
+    case "adminAddProduct":
+        adminAddProductEndpoint();
+        break;
+    case "adminChangeRole":
+        adminChangeRoleEndpoint();
+        break;
+    case "adminRemoveCategory":
+        adminRemoveCategoryEndpoint();
+        break;
     case "login":
         loginEndpoint();
         break;
