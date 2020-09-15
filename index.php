@@ -10,9 +10,9 @@ checkUserRole();
 
 $smarty = new Smarty();
 $smarty->setTemplateDir('templates');
+$smarty->assign('cartItemsCount', getCartItemsCount());
 
 $action = $_GET['action'] ?? 'main';
-
 
 if (strpos($action, 'admin') === 0) {
     if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] == 0) {
@@ -58,10 +58,21 @@ switch ($action) {
     case "orders":
         ordersEndpoint();
         break;
+    case "addToCart":
+        addItemToCartEndpoint();
+        break;
+    case "makeOrder":
+        makeOrderEndpoint();
+        break;
+    case "removeFromCart":
+        removeFromCartEndpoint();
+        break;
     case "logout":
         logoutEndpoint();
         break;
     default:
         mainPageEndpoint();
         break;
+
+
 }

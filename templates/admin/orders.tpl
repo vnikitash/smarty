@@ -1,5 +1,39 @@
 {extends file="layout.tpl"}
 
 {block name="body"}
-    LIST OF ALL USERS ORDERS
+    <table class="table">
+        <thead>
+        <tr>
+            <th rowspan="2">Order ID</th>
+            <th rowspan="2">User</th>
+            <th rowspan="2">Phone</th>
+            <th colspan="4" style="text-align: center">Products</th>
+        </tr>
+        <tr>
+            <th>NAME</th>
+            <th>IMAGE</th>
+            <th>PRICE</th>
+            <th>COUNT</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {foreach from=$orders item=order}
+            <tr>
+            <td rowspan="{count($order['products'])}">{$order['id']}</td>
+            <td rowspan="{count($order['products'])}">{$order['user']}</td>
+            <td rowspan="{count($order['products'])}">{$order['phone']}</td>
+
+
+            {foreach from=$order['products'] item=product}
+                <td>{$product['name']}</td>
+                <td>Image</td>
+                <td>{$product['price']}</td>
+                <td>{$product['count']}</td>
+                </tr>
+            {/foreach}
+        {/foreach}
+
+        </tbody>
+    </table>
 {/block}

@@ -33,34 +33,26 @@
             <th>ID</th>
             <th>Picture</th>
             <th>Name</th>
-            <th>Description</th>
+            <th>Category</th>
             <th>Price</th>
             <th>Manage</th>
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td><img src=""></td>
-                <td>iPhone XS Max</td>
-                <td>Some phone</td>
-                <td>25.00 $</td>
-                <td>
-                    <button class="btn btn-warning">Update</button>
-                    <button class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td><img src=""></td>
-                <td>iPhone XS Max</td>
-                <td>Some phone</td>
-                <td>25.00 $</td>
-                <td>
-                    <button class="btn btn-warning">Update</button>
-                    <button class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
+            {foreach from=$products item=product}
+                <tr>
+                    <td>{{$product['id']}}</td>
+                    <td><img src="{if $product['image']}{$product['image']}{else}1.png{/if}" width="100"></td>
+                    <td>{{$product['name']}}</td>
+                    <td>{{$product['category_name']}}</td>
+                    <td>{{$product['price']}}</td>
+
+                    <td>
+                        <button class="btn btn-warning">Update</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            {/foreach}
 
         </tbody>
     </table>

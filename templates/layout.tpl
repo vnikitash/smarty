@@ -38,14 +38,14 @@
                     <li><a href="/?action=login">Login</a></li>
                     <li><a href="/?action=register">Register</a></li>
                     {/if}
-                    <li><a href="/?action=cart">Cart (3)</a></li>
+                    <li><a href="/?action=cart">Cart ({$cartItemsCount})</a></li>
 
                 {if isset($smarty.session.user)}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$smarty.session.user.email}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/?action=orders">Orders</a></li>
-                        <li><a href="/?action=cart">Cart (3)</a></li>
+                        <li><a href="/?action=cart">Cart ({$cartItemsCount})</a></li>
                         <li><a href="/?action=logout">Logout</a></li>
                     </ul>
                 </li>
