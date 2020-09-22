@@ -1,78 +1,31 @@
 <?php
-date_default_timezone_set('Europe/Kiev');
 
-require_once "libs/Smarty.class.php";
-require_once "functions.php";
-require_once "session.php";
+$db = new mysqli("db", 'root', '', 'skillup');
 
 
-checkUserRole();
+/* SELECT
+$res = $db->query("SELECT * FROM users");
 
-$smarty = new Smarty();
-$smarty->setTemplateDir('templates');
-$smarty->assign('cartItemsCount', getCartItemsCount());
+$users = $res->fetch_all(MYSQLI_ASSOC);
 
-$action = $_GET['action'] ?? 'main';
-
-if (strpos($action, 'admin') === 0) {
-    if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] == 0) {
-        $action = 'main';
-    }
+foreach ($users as $user) {
+    echo $user['email'] . '<br>';
 }
+*/
 
-switch ($action) {
-    case "adminUpdateCategory":
-        adminUpdateCategoryEndpoint();
-        break;
-    case "adminAddProduct":
-        adminAddProductEndpoint();
-        break;
-    case "adminChangeRole":
-        adminChangeRoleEndpoint();
-        break;
-    case "adminRemoveCategory":
-        adminRemoveCategoryEndpoint();
-        break;
-    case "login":
-        loginEndpoint();
-        break;
-    case "register":
-        registerEndpoint();
-        break;
-    case "admin":
-    case "adminUsers":
-        adminUsersEndpoint();
-        break;
-    case "adminCategories":
-        adminCategoriesEndpoint();
-        break;
-    case "adminProducts":
-        adminProductsEndpoint();
-        break;
-    case "adminOrders":
-        adminOrdersEndpoint();
-        break;
-    case "cart":
-        cartEndpoint();
-        break;
-    case "orders":
-        ordersEndpoint();
-        break;
-    case "addToCart":
-        addItemToCartEndpoint();
-        break;
-    case "makeOrder":
-        makeOrderEndpoint();
-        break;
-    case "removeFromCart":
-        removeFromCartEndpoint();
-        break;
-    case "logout":
-        logoutEndpoint();
-        break;
-    default:
-        mainPageEndpoint();
-        break;
+/* INSERT
+$time = time();
+$query = "INSERT INTO `users` SET `email` = 'user+$time@gmail.com', `md5` = '" . md5($time) . "', `salt` = '23aa'";
+$db->query($query);
+*/
 
+/* DELETE
+$query = "DELETE FROM `users` WHERE id = 14 LIMIT 1";
+$db->query($query);
+*/
 
-}
+/* UPDATE
+$query = "UPDATE `users` SET `email` = 'updated' WHERE `id` = 13";
+$db->query($query);
+
+*/
