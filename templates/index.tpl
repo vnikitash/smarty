@@ -25,12 +25,28 @@
                                         <input type="hidden" name="id" value="{$product['id']}">
                                     <input type="submit" class="btn btn-success" role="button" value="Add to cart!">
                                     </form>
-
                                 </p>
                             </div>
                         </div>
                     </div>
                 {/foreach}
+
         </div>
+            <div class="row" style="text-align: center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        {if ($smarty.get.page|default:1) != 1}
+                        <li class="page-item"><a class="page-link" href="?per_page={$smarty.get.per_page|default:9}&page={($smarty.get.page|default:1 - 1)}">Previous</a></li>
+                        {/if}
+                        {for $i = 1; $i <= $pages; $i++}
+                            <li class="page-item {if ($smarty.get.page|default:1) == $i}active{/if}" ><a class="page-link" href="?per_page={$smarty.get.per_page|default:9}&page={$i}">{$i}</a></li>
+                        {/for}
+                        {if ($smarty.get.page|default:1) != $pages}
+                            <li class="page-item"><a class="page-link" href="?per_page={$smarty.get.per_page|default:9}&page={($smarty.get.page|default:1 + 1)}">Next</a></li>
+                        {/if}
+
+                    </ul>
+                </nav>
+            </div>
     </div>
 {/block}

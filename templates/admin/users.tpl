@@ -47,7 +47,7 @@
                     {if $user['id'] == $smarty.session.user.id}
                         -
                     {else}
-                        <button class="btn btn-danger">Delete</button>
+                        <a href="/?action=adminDeleteUser&userId={$user['id']}" class="btn btn-danger">Delete</a>
                     {/if}
                 </td>
             </tr>

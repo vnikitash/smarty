@@ -5,9 +5,6 @@ require_once "libs/Smarty.class.php";
 require_once "functions.php";
 require_once "session.php";
 
-
-checkUserRole();
-
 $smarty = new Smarty();
 $smarty->setTemplateDir('templates');
 $smarty->assign('cartItemsCount', getCartItemsCount());
@@ -24,6 +21,9 @@ switch ($action) {
     case "adminUpdateCategory":
         adminUpdateCategoryEndpoint();
         break;
+    case "adminDeleteUser":
+        adminDeleteUserEndpoint();
+        break;
     case "adminAddProduct":
         adminAddProductEndpoint();
         break;
@@ -38,6 +38,10 @@ switch ($action) {
         break;
     case "register":
         registerEndpoint();
+        break;
+    case "session":
+        print_r($_SESSION);
+
         break;
     case "admin":
     case "adminUsers":

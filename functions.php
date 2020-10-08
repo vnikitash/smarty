@@ -39,25 +39,19 @@ function makeLogin(string $email, string $password)
         return;
     }
 
-    $users = readFromFile(USERS_FILE);
+    $user = findUserByEmail($email);
 
-    foreach ($users as $user) {
-        if ($email === $user['email']) {
-            if (!password_verify($password, $user['password'])) {
-                header("Location: /?action=login&error=Credentials are incorrect or user does not exist");
+    if (!$user || $user['password'] !== md5($password)) {
+        header("Location: /?action=login&error=Credentials are incorrect or user does not exist");
 
-                return;
-            }
-
-            //EMAIL FOUND AND PASSWORD CORRECT
-            header("Location: /");
-
-            $_SESSION['user'] = $user;
-            return;
-        }
+        return;
     }
 
-    header("Location: /?action=login&error=Credentials are incorrect or user does not exist");
+    $user['is_admin'] = (int) $user['is_admin'];
+
+    $_SESSION['user'] = $user;
+
+    header("Location: /");
 }
 
 function registerEndpoint()
@@ -93,30 +87,32 @@ function makeRegistration(string $email, string $password)
         return;
     }
 
-    $users = readFromFile(USERS_FILE);
-
-    foreach ($users as $user) {
-        if ($email === $user['email']) {
-            header("Location: /?action=register&error=User already exists");
-            return;
-        }
-    }
-
-    $users[] = $user = [
-        'id' => md5(time() . rand(1,1000000)),
-        'email' => $email,
-        'password' => password_hash($password, PASSWORD_DEFAULT),
-        'is_admin' => 0,
-        'created_at' => date("d-m-Y")
-    ];
-
-    if (!writeFile(USERS_FILE, $users)) {
-        header("Location: /?action=register&error=Server error. Not able to create user");
+    if (findUserByEmail($email)) {
+        header("Location: /?action=register&error=User with this email already exists!");
 
         return;
     }
 
-    $_SESSION['user'] = $user;
+    $db = getDBInstance();
+
+    $query = "
+        INSERT INTO `users` 
+        SET 
+          `email` = '$email', 
+          `password` = '" . md5($password) . "'
+          ";
+
+    $db->query($query);
+
+    if ($db->error) {
+        die("ERROR: " . $db->error);
+    }
+
+    $_SESSION['user'] = [
+        'is_admin' => 0,
+        'email' => $email,
+        'id' => $db->insert_id,
+    ];
 
     header("Location: /");
 }
@@ -156,8 +152,17 @@ function mainPageEndpoint()
 {
     global $smarty;
 
+
+    $page = $_GET['page'] ?? 1;
+    $perPage = $_GET['per_page'] ?? 9;
+
+    $db = getDBInstance();
+    $productsCount = $db->query("SELECT COUNT(*) as c FROM products")->fetch_assoc()['c'];
+
     $smarty->assign('categories', getCategoriesList());
-    $smarty->assign('products', getProducts());
+    $smarty->assign('products', getProducts($perPage, $page));
+    $smarty->assign('pages', ceil($productsCount / $perPage));
+    $smarty->assign('activePage', $page);
 
     $smarty->display('index.tpl');
 }
@@ -166,7 +171,11 @@ function adminUsersEndpoint()
 {
     global $smarty;
 
-    $users = readFromFile(USERS_FILE);
+
+    $db = getDBInstance();
+
+    $res = $db->query("SELECT * FROM users ORDER BY id DESC");
+    $users = $res->fetch_all(MYSQLI_ASSOC);
 
     $smarty->assign('users', $users);
 
@@ -195,21 +204,11 @@ function adminCategoriesEndpoint()
 
 function getCategoriesList()
 {
-    $categories = readFromFile(CATEGORIES_FILE, []);
+    $db = getDBInstance();
 
-    $len = count($categories) - 1;
+    $res = $db->query("SELECT * FROM categories ORDER BY `order` DESC");
 
-    for ($j = 0; $j < $len; $j++) {
-        for($i = 0; $i < $len; $i++) {
-            if ($categories[$i]['order'] > $categories[$i + 1]['order']) {
-                $tmp = $categories[$i];// $tmp = 8
-                $categories[$i] = $categories[$i + 1]; // $arr[0] = 4
-                $categories[$i + 1] = $tmp; // $arr[1] = $tmp = 8;
-            }
-        }
-    }
-
-    return $categories;
+    return $res->fetch_all(MYSQLI_ASSOC);
 }
 
 function createCategory(string $categoryName, int $categoryOrder)
@@ -292,11 +291,30 @@ function readFromFile(string $fileName, $default = [])
     return json_decode($json, true);
 }
 
+function adminDeleteUserEndpoint()
+{
+    $userId = $_GET['userId'];//48765
+
+    if (!is_numeric($userId)) {
+        header("Location: /?action=adminUsers&error=Should be integer");
+    }
+
+    $userId = (int) $userId;
+
+    $query = 'DELETE FROM users WHERE id = ' . $userId . ' LIMIT 1';
+
+
+    $db = getDBInstance();
+    $db->query($query);
+
+    header("Location: /?action=adminUsers");
+}
+
 function adminUpdateCategoryEndpoint()
 {
-    $name = $_POST['name'] ?? '';
-    $order = $_POST['order'] ?? 0;
-    $id = $_POST['id'] ?? 0; //123
+    $name = htmlspecialchars($_POST['name'] ?? '');
+    $order = (int) ($_POST['order'] ?? 0);
+    $id = (int) ($_POST['id'] ?? 0); //123
 
     if (strlen($name) < 3) {
         header("Location: /?action=adminCategories&error=Category name should be at least 3 symbols length!");
@@ -313,28 +331,30 @@ function adminUpdateCategoryEndpoint()
         return;
     }
 
-    $categories = getCategoriesList();
+    $db = getDBInstance();
+    $res = $db->query("SELECT * FROM categories WHERE id = '$id' LIMIT 1");
 
-    $updated = false;
+    $categoryData = $res->fetch_assoc();
 
-    foreach ($categories as &$category) {
-        if ($category['id'] === $id) {
-            $category['name'] = $name;
-            $category['order'] = $order;
-
-            $updated = true;
-        }
-    }
-
-    if (!$updated) {
+    if (!$categoryData) {
         header("Location: /?action=adminCategories&error=The category with id $id does not exists");
         return;
     }
 
-    writeFile(CATEGORIES_FILE, $categories);
+    $query = "
+    
+    UPDATE categories 
+      SET 
+        `name` = '$name',
+        `order` = '$order' 
+      WHERE id = '$id' 
+      LIMIT 1
+    ";
+
+
+    $db->query($query);
 
     header("Location: /?action=adminCategories&message=The category with id=$id has been updated!");
-
 }
 
 function adminRemoveCategoryEndpoint()
@@ -366,23 +386,6 @@ function adminRemoveCategoryEndpoint()
     writeFile(CATEGORIES_FILE, array_values($categories));
 
     header("Location: /?action=adminCategories&message=The category with id=$categoryId has been removed!");
-}
-
-function checkUserRole()
-{
-
-    if (!($_SESSION['user'] ?? false)) {
-        return;
-    }
-
-    $userMail = $_SESSION['user']['email'];
-    $userRole = $_SESSION['user']['is_admin'];
-
-    foreach (readFromFile(USERS_FILE) as $user) {
-        if ($userMail === $user['email'] && $userRole !== $user['is_admin']) {
-            logoutEndpoint();
-        }
-    }
 }
 
 function adminChangeRoleEndpoint()
@@ -465,27 +468,12 @@ function adminAddProductEndpoint() {
     header("Location: /?action=adminProducts");
 }
 
-function getProducts(): array
+function getProducts(int $perPage = 9, int $page = 1): array
 {
+    $skip = ($page - 1) * $perPage; // 0 * 9 => 0 if page = 1
 
-    $categories = getCategoriesList();
-
-    $assocCategories = [];
-
-    foreach ($categories as $category) {
-        $assocCategories[$category['id']] = $category['name'];
-    }
-
-    $products = readFromFile(PRODUCTS_FILE, []);
-
-
-    $updatedProducts = array_map(function ($product) use ($assocCategories) {
-        $product['category_name'] = $assocCategories[$product['category_id']];
-
-        return $product;
-    }, $products);
-
-    return $updatedProducts;
+    $db = getDBInstance();
+    return $db->query("SELECT * FROM products LIMIT $skip,$perPage")->fetch_all(MYSQLI_ASSOC);
 }
 
 function addItemToCartEndpoint()
@@ -630,6 +618,18 @@ function makeOrderEndpoint()
 }
 
 
+function findUserByEmail(string $email): ?array
+{
+    $db = getDBInstance();
+    $res = $db->query("SELECT * FROM users WHERE email='$email' LIMIT 1");
+
+    return $res->fetch_assoc();
+}
+
+function getDBInstance()
+{
+    return new mysqli("db", "root", "", "skillup");
+}
 
 
 
