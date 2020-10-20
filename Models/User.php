@@ -128,3 +128,5 @@ class User
         return $user;
     }
 }
+
+//SOLID

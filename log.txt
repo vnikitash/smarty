@@ -1,0 +1,35 @@
+Payment. Received 111.15, taken: 112.81725
+Payment. Received 86.28, taken: 87.5742
+Payment. Received 5.01, taken: 5.08515
+Payment. Received 61.72, taken: 62.6458
+Payment. Received 39.6, taken: 40.194
+Payment. Received 70.36, taken: 71.4154
+Payment. Received 38.08, taken: 38.6512
+Payment. Received 51.79, taken: 52.56685
+Payment. Received 70, taken: 71.05
+Payment. Received 30.93, taken: 31.39395
+Payment. Received 74.56, taken: 75.3056
+Payment. Received 58.92, taken: 59.5092
+Payment. Received 94.1, taken: 95.041
+Payment. Received 94.59, taken: 95.5359
+Payment []. Received 97.48, taken: 98.4548
+Payment []. Received 42.78, taken: 43.4217
+Payment []. Received 29.18, taken: 29.4718
+Payment []. Received 99.17, taken: 100.65755
+Payment [PayPal]. Received 68.68, taken: 69.3668
+Payment [LiqPay]. Received 81.72, taken: 82.9458
+Payment [PayPal]. Received 24.22, taken: 24.4622
+Payment [LiqPay]. Received 37.12, taken: 37.6768
+Payment [PayPal]. Received 10.16, taken: 10.2616
+Payment [LiqPay]. Received 85.82, taken: 87.1073
+Payment [PayPal]. Received 28.41, taken: 28.6941
+Payment [LiqPay]. Received 81.56, taken: 82.7834
+Payment [PayPal]. Received 51.8, taken: 52.318
+Payment [LiqPay]. Received 57.36, taken: 58.2204
+Payment [PayPal]. Received 77.24, taken: 78.0124
+Payment [LiqPay]. Received 14.69, taken: 14.91035
+Payment [PayPal]. Received 100, taken: 101
+Payment [LiqPay]. Received 100, taken: 101.5
+Payment [Stripe]. Received 100, taken: 100.9
+Payment [PayPal]. Received 100, taken: 101
+Payment [BrainTree]. Received 100, taken: 102

@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a49e018c-fc96-40c5-9421-ed21d9b1c432" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories.json" beforeDir="false" afterPath="$PROJECT_DIR$/categories.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders.json" beforeDir="false" afterPath="$PROJECT_DIR$/orders.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,68 +43,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="30">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="163" column="60" selection-start-line="163" selection-start-column="60" selection-end-line="163" selection-end-column="60" />
+            <state relative-caret-position="352">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/admin/users.tpl">
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="49" column="64" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="64" />
+            <state relative-caret-position="475">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/layout.tpl">
+      <file leaf-file-name="log.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="26" column="80" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="80" />
+            <state relative-caret-position="550">
+              <caret line="34" column="18" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="session.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/session.php">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/index.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="38" column="139" selection-start-line="38" selection-start-column="139" selection-end-line="38" selection-end-column="139" />
+            <state relative-caret-position="253">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
-                <element signature="e#1652#1678#0#HTML" expanded="true" />
+                <element signature="n#create#0;n#User#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DB.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Helpers/DB.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -125,9 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Test</find>
-      <find>foreach</find>
-      <find>Laptops</find>
       <find>Suits</find>
       <find>categories.tpl</find>
       <find>makeRe</find>
@@ -155,6 +138,9 @@
       <find>adminUpdate</find>
       <find>PRODUCTS</find>
       <find>getProducts</find>
+      <find>Payable</find>
+      <find>Depen</find>
+      <find>setPassword</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/templates</dir>
@@ -183,20 +169,22 @@
         <option value="$PROJECT_DIR$/categories.json" />
         <option value="$PROJECT_DIR$/products.json" />
         <option value="$PROJECT_DIR$/templates/admin/products.tpl" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/templates/cart.tpl" />
         <option value="$PROJECT_DIR$/orders.json" />
         <option value="$PROJECT_DIR$/templates/orders.tpl" />
         <option value="$PROJECT_DIR$/templates/admin/orders.tpl" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4f57ab97-6f8f-469d-910f-df2c1bef44e7/console.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/49761ef4-b55f-4f3f-acb7-0dd32a8801b2/console.sql" />
         <option value="$PROJECT_DIR$/session.php" />
         <option value="$PROJECT_DIR$/templates/layout.tpl" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/templates/admin/users.tpl" />
-        <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/templates/index.tpl" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/49761ef4-b55f-4f3f-acb7-0dd32a8801b2/console.sql" />
+        <option value="$PROJECT_DIR$/Helpers/DB.php" />
+        <option value="$PROJECT_DIR$/Models/User.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/functions.php" />
       </list>
     </option>
   </component>
@@ -210,8 +198,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="990" />
+    <option name="x" value="37" />
+    <option name="y" value="25" />
+    <option name="width" value="1014" />
     <option name="height" value="811" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -228,17 +217,6 @@
               <item name="docker" type="b2602c69:ProjectViewProjectNode" />
               <item name="docker" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="docker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="docker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -249,7 +227,7 @@
     <property name="SearchEverywhereHistoryKey" value="function&#9;FILE&#9;file:///Users/viktor/PhpstormProjects/docker/functions.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="database.data.csv.formats" />
@@ -294,12 +272,15 @@
       <workItem from="1600789859172" duration="5357000" />
       <workItem from="1600864714046" duration="1481000" />
       <workItem from="1600962895469" duration="6070000" />
-      <workItem from="1601997059859" duration="14418000" />
+      <workItem from="1601997059859" duration="15220000" />
+      <workItem from="1602695650275" duration="226000" />
+      <workItem from="1602773955399" duration="7716000" />
+      <workItem from="1603209914339" duration="9033000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77126000" />
+    <option name="totallyTimeSpent" value="94903000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -311,19 +292,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="990" height="811" extended-state="0" />
+    <frame x="37" y="25" width="1014" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08122363" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2355967" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32969698" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" weight="0.33213514" />
+      <window_info anchor="right" id="Database" order="3" weight="0.33173078" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32913166" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23389356" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27731094" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -332,26 +313,26 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="8" visible="true" weight="0.09943978" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.37535015" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17285156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.24929972" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -365,13 +346,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/layout.tpl" />
-    <entry file="file://$PROJECT_DIR$/templates/index.tpl" />
-    <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/templates/404.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/index3.tpl" />
     <entry file="file://$PROJECT_DIR$/index2.php" />
@@ -404,7 +382,6 @@
     <entry file="file://$PROJECT_DIR$/product_images/472195958b08598ac8d2c190cef4fbe5.png" />
     <entry file="file://$PROJECT_DIR$/product_images/ac49fb78fb59b67e48830f45aa915921.png" />
     <entry file="file://$PROJECT_DIR$/templates/admin/products.tpl" />
-    <entry file="file://$PROJECT_DIR$/test.php" />
     <entry file="file://$PROJECT_DIR$/templates/cart.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/admin/orders.tpl" />
     <entry file="file://$PROJECT_DIR$/composer.lock" />
@@ -436,40 +413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/49761ef4-b55f-4f3f-acb7-0dd32a8801b2/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/plugins/function.math.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/categories.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="88" selection-start-column="88" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/orders.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="84" lean-forward="true" selection-start-column="84" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/plugins/function.math.php" />
+    <entry file="file://$PROJECT_DIR$/categories.json" />
+    <entry file="file://$PROJECT_DIR$/orders.json" />
+    <entry file="file://$PROJECT_DIR$/products.json" />
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/password/password.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -477,55 +424,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users.json">
+    <entry file="file://$PROJECT_DIR$/users.json" />
+    <entry file="file://$PROJECT_DIR$/session.php" />
+    <entry file="file://$PROJECT_DIR$/templates/layout.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/users.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/index.tpl" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/49761ef4-b55f-4f3f-acb7-0dd32a8801b2/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="180" lean-forward="true" selection-start-column="180" selection-end-column="180" />
+          <caret column="52" selection-end-column="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/session.php">
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+        <state relative-caret-position="90">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="30">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.tpl">
+    <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="26" column="80" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="80" />
+        <state relative-caret-position="475">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/users.tpl">
+    <entry file="file://$PROJECT_DIR$/log.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="49" column="64" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="64" />
+        <state relative-caret-position="550">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="n#create#0;n#User#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Helpers/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="163" column="60" selection-start-line="163" selection-start-column="60" selection-end-line="163" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="38" column="139" selection-start-line="38" selection-start-column="139" selection-end-line="38" selection-end-column="139" />
-          <folding>
-            <element signature="e#1652#1678#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="352">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
