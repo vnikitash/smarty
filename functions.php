@@ -1,69 +1,51 @@
 <?php
 
-class DB
-{
-    private static $db;
-
-    private function __construct()
-    {
-    }
-
-    public static function getInstance()
-    {
-        if (!self::$db) {
-            echo "ESTABLISH CONNECTION...<br>";
-            self::$db = new mysqli(
-                'db',
-                'root',
-                '',
-                'skillup'
-                );
-        }
-
-        echo "READ FROM EXISTING VARIABLE<br>";
-        return self::$db;
-    }
-}
-class DB2
-{
-    private $db;
-
-    public function getInstance()
-    {
-        if ($this->db) {
-            echo "READ OLD CONNECT<br>";
-            return $this->db;
-        }
-        echo "ESTABLISH NEW CONNECT<br>";
-        return $this->db = new mysqli('db', 'root', '', 'skillup');
-    }
-}
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
 
 
-class Session
-{
+require_once "Helpers/DB.php";
+require_once "Models/User.php";
 
-    public function __construct()
-    {
-        if ($_COOKIE['session_id']) {
-            session_id($_COOKIE['session_id']);
-            session_start();
-        } else {
-            session_start();
-            setcookie('session_id', session_id(), time() + 1000);
-        }
-    }
 
-    public function get(string $key, $default = null)
-    {
-        return $_SESSION[$key] ?? $default;
-    }
 
-    public function set(string $key, $data)
-    {
-        $_SESSION[$key] = $data;
-    }
-}
 
-$session = new Session();
-echo $session->get('name');
+
+
+
+
+
+
+
+
+
+
+
+
+$user = User::find("admin@admin.updated");
+$user->save();
+/**
+ *
+ * C - CREATE
+ * R - READ
+ * U - UPDATE
+ * D - DELETE
+ *
+ */
+
+/*
+$user2 = new User();
+$user2->setEmail('v@v.v')
+    ->setPassword('v@v.v');
+    //->save();
+
+*/
+
+
+
+
+
+
+
+
