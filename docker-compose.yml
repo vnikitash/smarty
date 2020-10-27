@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: mysql:5.7
+    image: mysql:8
     container_name: my_mysql
     environment:
       MYSQL_DATABASE: skillup
@@ -25,7 +25,7 @@ services:
     container_name: my_nginx
     environment:
       WEB_DOCUMENT_ROOT: /laravel
-      WEB_DOCUMENT_INDEX: index.php
+      WEB_DOCUMENT_INDEX: test.php
       WEB_PHP_SOCKET: php:9000
     volumes:
       - "./:/laravel"
