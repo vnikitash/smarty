@@ -1,13 +1,11 @@
 <?php
 
-namespace Models;
-
-
 class UserModel
 {
     private $id;
     private $email;
     private $password;
+    private $created_at;
 
     public function setEmail(string $email): self
     {
@@ -65,7 +63,7 @@ class UserModel
 
     private function create(): bool
     {
-        $db = \DB::getInstance();
+        $db = DB::getInstance();
         $db->query("
           INSERT 
           INTO users 
@@ -80,7 +78,7 @@ class UserModel
 
     private function update()
     {
-        $db = \DB::getInstance();
+        $db = DB::getInstance();
         $db->query("
           UPDATE 
             users 
@@ -98,22 +96,30 @@ class UserModel
             die("User should exits in DB!");
         }
 
-        $db = \DB::getInstance();
+        $db = DB::getInstance();
         $db->query("DELETE FROM users WHERE id = {$this->id} LIMIT 1");
 
         return (bool) $db->affected_rows;
     }
 
-    public static function find(string $email): ?self
+    public static function findByEmail(string $email): ?self
     {
-        $db = \DB::getInstance();
+        return self::findUserByFieldAndValue('email', $email);
+    }
+
+    public static function find(int $id): ?self
+    {
+        return self::findUserByFieldAndValue('id', $id);
+    }
+
+    public static function findUserByFieldAndValue(string $field, string $value)
+    {
+        $db = DB::getInstance();
         $res = $db->query("
           SELECT * 
           FROM users 
-          WHERE email = '$email' 
+          WHERE `$field` = '$value' 
           LIMIT 1");
-
-        //'92c3c78c454a0de53f4cfada79ac4db5'
 
         $arrayUser = $res->fetch_assoc();
 
@@ -126,20 +132,31 @@ class UserModel
         $user
             ->setPassword($arrayUser['password'], false)
             ->setId($arrayUser['id'])
-            ->setEmail($email);
+            ->setEmail($arrayUser['email'])
+            ->setCreatedAt($arrayUser['created_at']);
 
         return $user;
     }
 
-    public static function getAllUser(): array
+    public function setCreatedAt(string $dateTime): self
     {
-        $db = \DB::getInstance();
-        $res = $db->query("
-          SELECT * 
-          FROM users 
-        ");
+        $this->created_at = $dateTime;
 
+        return $this;
+    }
 
-        return $res->fetch_all(MYSQLI_ASSOC);
+    public function getCreatedAt(): string
+    {
+        return $this->created_at;
+    }
+
+    public static function all(): array
+    {
+        $db = DB::getInstance();
+
+        return $db
+            ->query("SELECT id, email, created_at FROM users")
+            ->fetch_all(MYSQLI_ASSOC) ?? [];
+
     }
 }

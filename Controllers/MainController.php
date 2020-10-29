@@ -1,10 +1,16 @@
 <?php
 
-class MainController extends Controller
+class MainController
 {
-
     public function index()
     {
-       die("this is some main action!");
+        $smarty = View::getInstance();
+
+        $users = UserModel::all();
+        $now = date("H:i:s", time());
+
+        $smarty->assign('users', $users);
+        $smarty->assign('time', $now);
+        $smarty->display('index.tpl');
     }
 }

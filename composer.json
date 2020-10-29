@@ -1,13 +1,16 @@
 {
     "name": "viktor/docker",
+    "require": {
+        "smarty/smarty": "^3.1"
+    },
+    "require-dev": {
+        "phpoffice/phpexcel": "^1.8"
+    },
     "authors": [
         {
-            "name": "Viktor Nikitash",
+            "name": "Viktor",
             "email": "nikitashvictor@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {
-        "smarty/smarty": "^3.1"
-    }
+    "minimum-stability": "stable"
 }

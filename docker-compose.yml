@@ -1,14 +1,14 @@
-version: '2'
+version: '3'
 services:
   db:
-    image: mysql:8
+    image: mysql:5.7
     container_name: my_mysql
     environment:
       MYSQL_DATABASE: skillup
       MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
-      - "3066:3306"
+      - "3306:3306"
   php:
     image: webdevops/php:7.4
     container_name: my_php
@@ -31,4 +31,3 @@ services:
       - "./:/laravel"
     ports:
       - "80:80"
-

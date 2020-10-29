@@ -4,53 +4,39 @@ ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
 require_once "vendor/autoload.php";
-require_once "Controllers/Controllable.php";
-require_once "Models/UserModel.php";
-require_once "Helper/DB.php";
-require_once "Controllers/Controller.php";
-require_once "Controllers/OrderController.php";
-require_once "Controllers/UserController.php";
-require_once "Controllers/MainController.php";
 
-$smarty = new Smarty();
-$smarty->setTemplateDir("Views");
+spl_autoload_register(function ($class) {
 
-$uri = $_SERVER['REQUEST_URI'] ?? '/';
+    $folder = "Helpers";
+    if (strpos($class, "Model") !== false) {
+        $folder = "Models";
+    } else if (strpos($class, "Controller") !== false) {
+        $folder = "Controllers";
+    }
 
-$uri = ltrim($uri, '/');
+    $filePath = "$folder/$class.php";
+    if (!file_exists($filePath)) {
+        die('404 not found!!!!!');
+    }
 
-$parts = explode("/", $uri);
-$controller = array_shift($parts);
-$controller = empty($controller) ? 'MainController' : ucfirst(strtolower($controller)) . 'Controller';
-
-
-$method = array_shift($parts);
-
-$method = empty($method) ? 'index' : strtolower($method);
+    require_once $filePath;
+});
 
 
-$controller = new $controller(); // if $controller = 'MainController' => new $controller() => new MainController()
-$controller->$method();
+$requestURI = ltrim($_SERVER['REQUEST_URI'], '/'); // /orders/update/12
 
+$parts = explode('/', $requestURI);
 
+$class = empty($parts[0]) ? 'user' : $parts[0];
+$method = $parts[1] ?? 'index';
+$parameter = $parts[2] ?? null;
 
+$controller = ucfirst($class) . 'Controller'; //main => Main || user => User
 
-
-
-
-
-
-
-
-
-
-
-
-/**
- * MVC
- *
- * M - Model
- * V - View
- * C - Controller
- *
- */
+$object = new $controller();
+if (method_exists($object, $method)) {
+    $object->$method();
+} else {
+    //header("Location: /" . $class);
+    die("NOT FOUND");
+}
